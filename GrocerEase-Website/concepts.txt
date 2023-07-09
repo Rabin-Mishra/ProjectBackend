@@ -1,0 +1,376 @@
+Here we must be focused on making a particular section activce whenever it is been clicked
+Using the get variable so as to access the particular section and redirect to the same page
+
+$host = 'localhost'; //localhost name
+$username = 'root'; //  database username
+$password = ''; //  database password
+$database = 'grocerease'; //  database name
+
+// Create a connection
+$con = new mysqli($host, $username, $password, $database);
+
+// Check if the connection was successful
+if ($con->connect_error) {
+    die('Connection failed: ' . $con->connect_error);
+}
+
+if required use this card
+<div class="col-md-10">
+                <!-- for displaying all the products -->
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <div class="card">
+                            <img src="./image/localProducts/capsicum.jpg" class="card-img-top" alt="Apple">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-success">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View More</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="card">
+                            <img src="./image/localProducts/brocoli.jpg" class="card-img-top" alt="Banana">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-success">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="card">
+                            <img src="./image/localProducts/bittergourd.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-success">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="card">
+                            <img src="./image/localProducts/dalleKhursani.jpg" class="card-img-top" alt="Grapes">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-success">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        <!-- <div class='col-md-3 mb-2'>
+                        <div class='card'>
+                            <img src='./image/localProducts/apples.jpg' class='card-img-top' alt='Apple'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>Card title</h5>
+                                <p class='card-text'>Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href='#' class='btn btn-success'>Add to cart</a>
+                                <a href='#' class='btn btn-secondary'>View More</a>
+                            </div>
+                        </div>
+                    </div> -->
+                   
+
+
+                   2nd div ko
+                    <div class="col-md-2 bg-light p-0 ">
+                <!-- categories to be displayed -->
+                <ul class="navbar-nav me-auto text-center">
+                    <li class="nav-item bg-success">
+                        <a href="#" class="nav-link  text-light">
+                            <h4>Categories</h4>
+                        </a>
+                    </li>
+                    <?php
+                    $select_categories = "SELECT * FROM `categories`";
+                    $result_categories = mysqli_query($con, $select_categories);
+                    while ($row_data = mysqli_fetch_assoc($result_categories)) {
+                        $category_title = $row_data['category_title'];
+                        $category_id = $row_data['category_id'];
+                        echo "<li class='nav-item'><a href='index.php?category=$category_id' class='nav-link text-dark font-weight-bold'>$category_title</a></li>";
+                    }
+
+                    ?>
+
+                </ul>
+
+            </div>
+
+
+
+             <div class="col-md-10">
+                <!-- for displaying all the products -->
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <div class="card">
+                            <img src="./image/localProducts/capsicum.jpg" class="card-img-top" alt="Apple">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-success">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View More</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="card">
+                            <img src="./image/localProducts/brocoli.jpg" class="card-img-top" alt="Banana">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-success">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="card">
+                            <img src="./image/localProducts/bittergourd.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-success">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="card">
+                            <img src="./image/localProducts/dalleKhursani.jpg" class="card-img-top" alt="Grapes">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-success">Add to cart</a>
+                                <a href="#" class="btn btn-secondary">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- for displaying the side nav -->
+
+
+
+
+              global $con;
+
+    //condition to check if category is set
+    if (isset($_GET['category'])) {
+        $category_id = $_GET['category'];
+        $select_query = "SELECT * FROM `products` WHERE category_id=$category_id";
+        $result_query = mysqli_query($con, $select_query);
+
+        while ($row = mysqli_fetch_assoc($result_query)) {
+            $product_id = $row['product_id'];
+            $product_title = $row['product_title'];
+            $product_description = $row['product_description'];
+            $product_image1 = $row['product_image1'];
+            $product_price = $row['product_price'];
+
+            echo "<div class='col-md-3 mb-2'>
+                <div class='card'>
+                    <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='Product Image'>
+                    <div class='card-body'>
+                        <h5 class='card-title'>$product_title</h5>
+                        <p class='card-text'>$product_description</p>
+                        <a href='#' class='btn btn-success'>Add to cart</a>
+                        <a href='#' class='btn btn-secondary'>View More</a>
+                    </div>
+                </div>
+            </div>";
+        }
+    }
+
+
+
+    if required use this in cart.php from line 233 onwards
+                     <div class="d-flex mb-3 mt-2">
+                        <?php
+                        $get_ip_add = getIPAddress();
+                        $cart_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add'";
+                        $result = mysqli_query($con, $cart_query);
+                        $result_count = mysqli_num_rows($result);
+                        if ($result_count > 0) {
+                            echo " <h4 class='px-3'>Subtotal:
+                               <strong class='text-success'>
+                                   $total_price/- </strong> </h4>
+<input type='submit' value='Continue Shopping' class='bg-success p-2 m-3 border-0 text-light'
+name='continue_shopping'>
+ <button class='bg-secondary px-1 border-0 m-3 text-light'><b><a href='./users_area/checkout.php' class='text-light text-decoration-none'>Checkout</a></b></button>
+";
+                        } else {
+                            echo "<input type='submit' value='Continue Shopping' class='bg-success p-2 m-3 border-0 text-light'
+                            name='continue_shopping'>";
+                        }
+                        if (isset($_POST['continue_shopping'])) {
+                            echo "<script>window.open('index.php','_self')</script>";
+                        }
+
+                        ?>
+
+                    </div>
+
+                    code from cahtgpt
+                                     <div class="d-flex mb-3 mt-2">
+                        <?php
+                        $get_ip_add = $_SERVER['REMOTE_ADDR'] ?? '';
+
+                        $cart_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add'";
+                        $result = mysqli_query($con, $cart_query);
+                        $result_count = mysqli_num_rows($result);
+
+                        if ($result_count > 0) {
+                            $subtotal = $total_price * $result_count;
+                            echo "<h4 class='px-3'>Subtotal: <strong class='text-success'>$subtotal/-</strong></h4>";
+                            echo "<input type='submit' value='Continue Shopping' class='bg-success p-2 m-3 border-0 text-light' name='continue_shopping'>";
+                            echo "<button class='bg-secondary px-1 border-0 m-3 text-light'><b><a href='./users_area/checkout.php' class='text-light text-decoration-none'>Checkout</a></b></button>";
+                        } else {
+                            echo "<h2 class='text-center text-danger'>Cart is empty</h2>";
+                        }
+
+                        if (isset($_POST['continue_shopping'])) {
+                            echo "<script>window.open('index.php','_self')</script>";
+                        }
+                        ?>
+                    </div>
+                    since didnt worked for the updated value 
+                                      <div class="d-flex mb-3 mt-2">
+                    <?php
+                    $get_ip_add = $_SERVER['REMOTE_ADDR'] ?? '';
+                    $cart_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add'";
+                    $result = mysqli_query($con, $cart_query);
+                    $result_count = mysqli_num_rows($result);
+
+                    if ($result_count > 0) {
+                        $subtotal = 0; // Initialize subtotal variable
+                        while ($row = mysqli_fetch_array($result)) {
+                            $product_id = $row['product_id'];
+                            $select_products = "SELECT * FROM `products` WHERE product_id=$product_id";
+                            $result_products = mysqli_query($con, $select_products);
+                            $row_product_price = mysqli_fetch_array($result_products);
+                            $price_table = $row_product_price['product_price'];
+                            $subtotal += $price_table; // Add product price to subtotal
+                        }
+
+                        echo "<h4 class='px-3'>Subtotal: <strong class='text-success'>$subtotal/-</strong></h4>";
+                        echo "<input type='submit' value='Continue Shopping' class='bg-success p-2 m-3 border-0 text-light' name='continue_shopping'>";
+                        echo "<button class='bg-secondary px-1 border-0 m-3 text-light'><b><a href='./users_area/checkout.php' class='text-light text-decoration-none'>Checkout</a></b></button>";
+                    } else {
+                        echo "<h2 class='text-center text-danger'>Cart is empty</h2>";
+                    }
+
+                    if (isset($_POST['continue_shopping'])) {
+                        echo "<script>window.open('index.php','_self')</script>";
+                    }
+                    ?>
+</div>
+this code worked only when the update cart was clicked
+$result_products = mysqli_query($con, $select_products);
+                                $row_product_price = mysqli_fetch_array($result_products);
+
+
+
+                                again connect_error
+                                                    <div class="d-flex mb-3 mt-2">
+                        <?php
+                        $get_ip_add = $_SERVER['REMOTE_ADDR'] ?? '';
+                        $cart_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add'";
+                        $result = mysqli_query($con, $cart_query);
+                        $result_count = mysqli_num_rows($result);
+
+                        if ($result_count > 0) {
+                            $subtotal = 0; // Initialize subtotal variable
+                            while ($row = mysqli_fetch_array($result)) {
+                                $product_id = $row['product_id'];
+                                $select_products = "SELECT * FROM `products` WHERE product_id=$product_id";
+                                $result_products = mysqli_query($con, $select_products);
+                                $row_product_price = mysqli_fetch_array($result_products);
+                                $price_table = $row_product_price['product_price'];
+                                $quantity = $row['quantity']; // Fetch the latest quantity
+                        
+                                // If quantity is not specified or empty, assume it as 1
+                                if (empty($quantity)) {
+                                    $quantity = 1;
+                                }
+
+                                $subtotal += ($price_table * $quantity); // Multiply price by quantity and add to subtotal
+                            }
+
+                            echo "<h4 class='px-3'>Subtotal: <strong class='text-success'>$subtotal/-</strong></h4>";
+                            echo "<input type='submit' value='Continue Shopping' class='bg-success p-2 m-3 border-0 text-light' name='continue_shopping'>";
+                            echo "<button class='bg-secondary px-1 border-0 m-3 text-light'><b><a href='./users_area/checkout.php' class='text-light text-decoration-none'>Checkout</a></b></button>";
+                        } else {
+                            echo "<h2 class='text-center text-danger'>Cart is empty</h2>";
+                        }
+
+                        if (isset($_POST['continue_shopping'])) {
+                            echo "<script>window.open('index.php','_self')</script>";
+                        }
+                        ?>
+                    </div>
+
+
+
+
+                                        <div class="d-flex mb-3 mt-2">
+                        <?php
+                        $get_ip_add = $_SERVER['REMOTE_ADDR'] ?? '';
+                        $cart_query = "SELECT * FROM `cart_details` WHERE ip_address='$get_ip_add'";
+                        $result = mysqli_query($con, $cart_query);
+                        $result_count = mysqli_num_rows($result);
+
+                        if ($result_count > 0) {
+                            $subtotal = 0; // Initialize subtotal variable
+                            while ($row = mysqli_fetch_array($result)) {
+                                $product_id = $row['product_id'];
+                                $select_products = "SELECT * FROM `products` WHERE product_id=$product_id";
+                                $result_products = mysqli_query($con, $select_products);
+                                $row_product_price = mysqli_fetch_array($result_products);
+                                $price_table = $row_product_price['product_price'];
+                                $quantity = $row['quantity']; // Fetch the latest quantity
+                        
+                                // If quantity is not specified or empty, assume it as 1
+                                if (empty($quantity)) {
+                                    $quantity = 1;
+                                }
+
+                                $subtotal_product = $price_table * $quantity; // Calculate subtotal for individual product
+                                $subtotal += $subtotal_product; // Add individual product subtotal to the total subtotal
+                            }
+
+                            echo "<h4 class='px-3'>Subtotal: <strong class='text-success'>$subtotal/-</strong></h4>";
+                            echo "<input type='submit' value='Continue Shopping' class='bg-success p-2 m-3 border-0 text-light' name='continue_shopping'>";
+                            echo "<button class='bg-secondary px-1 border-0 m-3 text-light'><b><a href='./users_area/checkout.php' class='text-light text-decoration-none'>Checkout</a></b></button>";
+                        } else {
+                            echo "<h2 class='text-center text-danger'>Cart is empty</h2>";
+                        }
+
+                        if (isset($_POST['continue_shopping'])) {
+                            echo "<script>window.open('index.php','_self')</script>";
+                        }
+                        ?>
+                    </div>
+
