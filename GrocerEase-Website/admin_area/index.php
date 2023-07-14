@@ -86,14 +86,9 @@
         if (isset($_GET['insert_brand'])) {
             include('insert_brands.php');
         }
-
-
-
         ?>
 
     </div>
-
-
 
     <!-- last child -->
     <div class="bg-success p-3 text-center footer text-light font-weight-bold">

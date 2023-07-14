@@ -1,3 +1,5 @@
+<!-- THIS IS THE PRODUCT PAGE OF OUR WEBPAGE  -->
+
 <!-- connecting to the databaase -->
 <?php
 //connecting to local server
@@ -60,6 +62,8 @@ include('functions/common_function.php');
                     <li class="nav-item">
                         <a class="nav-link text-light" href="#"><b>Contact</b></a>
                     </li>
+
+                    <!-- CART LINK  -->
                     <li class="nav-item">
                         <a class="nav-link text-light" href="cart.php"><i
                                 class="fa-sharp fa-solid fa-cart-plus"></i><sup>
@@ -89,7 +93,7 @@ include('functions/common_function.php');
         cart();
         ?>
 
-        <!--Second child-->
+        <!----------------------------------------SECOND_CHILD---------------------------------------->
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
