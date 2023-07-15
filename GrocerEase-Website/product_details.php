@@ -1,4 +1,4 @@
-<!-- connecting to the databaase -->
+<!-- connecting to the database -->
 <?php
 //connecting to local server
 include('./includes/connect.php');
@@ -88,16 +88,19 @@ include('functions/common_function.php');
         cart();
         ?>
 
-        <!--Second child-->
+        <!-----------------SECOND CHILD------------------>
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Welcome Guest</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="./users_area/user_login.php"> <img src="./Icons/user.png" alt="User Login"
-                            class="userLogin"><sup>Login</sup></a>
+                            class="userLogin"><sup>Login</sup>
+                    </a>
                 </li>
+
             </ul>
         </nav>
         <!-- third child -->

@@ -92,9 +92,10 @@ include('functions/common_function.php');
                 <li class="nav-item">
                     <a class="nav-link" href="#">Welcome Guest</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="./users_area/user_login.php"> <img src="./Icons/user.png" alt="User Login"
-                            class="userLogin"><sup>Login</sup></a>
+                    <a class="nav-link" href="./users_area/user_login.php">
+                        <img src="./Icons/user.png" alt="User Login" class="userLogin"><sup>Login</sup></a>
                 </li>
             </ul>
         </nav>

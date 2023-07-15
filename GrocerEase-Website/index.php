@@ -4,6 +4,8 @@
 include('./includes/connect.php');
 //including the common function 
 include('functions/common_function.php');
+//Starting the session
+session_start();
 ?>
 
 
@@ -50,8 +52,8 @@ include('functions/common_function.php');
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link  <?php if ($activePage == 'home')
-                            echo 'active'; ?>" href="index.php"><b class="text-light">Home</b> <span
-                                class="sr-only">(current)</span></a>
+                            echo 'active'; ?>" href="index.php"><b class="text-light">Home</b>
+                            <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="display_all.php"><b class="text-light">Products</b></a>
@@ -92,12 +94,38 @@ include('functions/common_function.php');
         cart();
         ?>
 
-        <!--Second child-->
+        <!--------------------SECOND CHILD----------------------------------->
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" class="text-success"> <b>Welcome Guest</b> </a>
-                </li>
+
+
+                <!-- FOR THE DYNAMIC GREETING OF THE USER AND DYNAMIC DISPLAYING OF LOGIN/LOGOUT-->
+                <?php
+                //<<------------------FOR THE WELCOME MESSAGE---------------------------->>
+                if (!isset($_SESSION['username'])) {
+                    echo "
+                    <li class='nav-item'>
+                    <a class='nav-link' href='#' class='text-success'> <b>Welcome Guest</b> </a>
+                </li>";
+                } else {
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='#' class='text-success'> <b>Welcome " . $_SESSION['username'] . "</b> </a>
+                </li>";
+                }
+
+                //<<-------------------- FOR THE LOGIN LOGOUT --------------------------->>
+                if (!isset($_SESSION['username'])) {
+                    echo "
+                    <li class = 'nav-item'>
+                    <a class='nav-link' href='./users_arae/user_login.php' >Login</a>
+                    </li>";
+                } else {
+                    echo "<li class='nav-item' >
+                    <a class='nav-link' href='./users_area/logout.php' >Logout</a>
+                    </li>";
+                }
+                ?>
+
                 <li class="nav-item">
                     <a class="nav-link" href="./users_area/user_login.php"> <img src="./Icons/user.png" alt="User Login"
                             class="userLogin"><sup>Login</sup></a>

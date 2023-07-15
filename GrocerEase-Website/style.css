@@ -1,46 +1,48 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* overflow-x: hidden; */
+  /* overflow-y: hidden; */
 }
 
 .logo {
-    width: 7%;
-    height: 7%;
+  width: 7%;
+  height: 7%;
 }
 
 .userLogin {
-    width: 7%;
-    height: 7%;
+  width: 7%;
+  height: 7%;
 }
 
 /* bootstrap class for product displaying in a row */
 .card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card-img-top {
-    width: 100%;
-    height: 200px;
-    /* for not adjustig the images as per the designed container */
-    object-fit: contain;
-    /* flex-grow: 1; */
+  width: 100%;
+  height: 200px;
+  /* for not adjustig the images as per the designed container */
+  object-fit: contain;
+  /* flex-grow: 1; */
 }
 
 .admin_Image {
-    width: 200px;
-    object-fit: contain;
+  width: 200px;
+  object-fit: contain;
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 .nav-link.active {
-    text-decoration: underline;
-    font-weight: bold;
-    color: white;
+  text-decoration: underline;
+  font-weight: bold;
+  color: white;
 }
