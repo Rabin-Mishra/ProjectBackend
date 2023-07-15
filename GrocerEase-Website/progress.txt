@@ -1,0 +1,4 @@
+Till part 49 we have created the orders table and pending orders table and payment page is created. 
+
+PART-50
+Now whenever the user click pay offline, whatever the items the user is having on the cart, the items should be submitted inside the orders table. 
