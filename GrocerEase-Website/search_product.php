@@ -4,6 +4,7 @@
 include('./includes/connect.php');
 //including the common function 
 include('functions/common_function.php');
+session_start();
 ?>
 
 
@@ -58,7 +59,7 @@ include('functions/common_function.php');
                         <a class="nav-link text-light" href="./users_area/user_registration.php"><b>Register</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#"><b>Contact</b></a>
+                        <a class="nav-link text-light" href="cart.php"><b>Contact</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="cart.php"><i
@@ -92,14 +93,36 @@ include('functions/common_function.php');
         <!--Second child-->
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Guest</a>
-                </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="./users_area/user_login.php"> <img src="./Icons/user.png" alt="User Login"
-                            class="userLogin"><sup>Login</sup></a>
-                </li>
+                <?php
+
+                if (!isset($_SESSION['username'])) {
+                    echo "     <li class='nav-item'>
+<a class='nav-link' href='#' class='text-success'> <b>Welcome Guest</b> </a>
+</li>
+</li>";
+
+                } else {
+                    echo " <li class='nav-item'>
+<a class='nav-link' href='#'> class='userLogin'><sup
+        class='text-success'>Welcome" . $_SESSION['username'] . "</sup></a>
+</li>";
+
+                }
+                if (!isset($_SESSION['username'])) {
+                    echo " <li class='nav-item'>
+                    <a class='nav-link' href='./users_area/user_login.php'> <img src='../Icons/user.png' alt='User Login' class='userLogin'><sup
+                            class='text-success'>Login</sup></a>
+                </li>";
+
+                } else {
+                    echo " <li class='nav-item'>
+                    <a class='nav-link' href='./users_area/logout.php'> <img src='../Icons/user.png' alt='User Login' class='userLogin'><sup
+                            class='text-success'>LogOut</sup></a>
+                </li>";
+
+                }
+                ?>
             </ul>
         </nav>
         <!-- third child -->
