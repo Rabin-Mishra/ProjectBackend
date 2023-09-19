@@ -28,6 +28,11 @@ session_start();
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- css file link -->
     <link rel="stylesheet" href="style.css">
+    <!-- <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style> -->
 
 </head>
 
@@ -61,7 +66,7 @@ session_start();
                         <a class="nav-link text-light" href="./users_area/user_registration.php"><b>Register</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#"><b>Contact</b></a>
+                        <a class="nav-link text-light" href="#contact" id="contact-link"><b>Contact</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="cart.php"><i
@@ -96,39 +101,39 @@ session_start();
         <!--Second child-->
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <ul class="navbar-nav me-auto">
+
                 <?php
                 if (!isset($_SESSION['username'])) {
-                    echo "     <li class='nav-item'>
-                <a class='nav-link' href='#' class='text-success'> <b>Welcome Guest</b> </a>
-            </li>
-            </li>";
-
+                    echo "  <li class='nav-item'>
+<a class='nav-link text-success' href='#'> <b>Welcome Guest</b> </a>
+</li>";
                 } else {
-                    echo " <li class='nav-item'>
-                <a class='nav-link' href='#'> class='userLogin'><sup
-                        class='text-success'>Welcome" . $_SESSION['username'] . "</sup></a>
-            </li>";
-
+                    echo "<li class='nav-item'>
+                    <a class='nav-link text-success' href='#'> <b>Welcome " . $_SESSION['username'] . "
+                    </b> </a>
+                    </li>";
                 }
                 if (!isset($_SESSION['username'])) {
-                    echo " <li class='nav-item'>
-                    <a class='nav-link' href='./users_area/user_login.php'><sup
-                            class='text-success'>Login</sup></a>
-                </li>";
+                    echo "   <li class='nav-item'>
+    <a class='nav-link text-success font-weight-bold' href='./users_area/user_login.php'><img src='./Icons/user.png' alt='User Login'
+    class='userLogin'><sup>Login</sup></a>
+</li>";
 
                 } else {
-                    echo " <li class='nav-item'>
-                    <a class='nav-link' href='./users_area/logout.php'><sup
-                            class='text-success'>LogOut</sup></a>
-                </li>";
-
+                    echo "<li class='nav-item'>
+    <a class='nav-link text-danger font-weight-bold' href='./users_area/logout.php'> Logout</a>
+</li>";
                 }
                 ?>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="./users_area/user_login.php"> <img src="./Icons/user.png" alt="User Login"
+                            class="userLogin"><sup>Login</sup></a>
+                </li> -->
             </ul>
         </nav>
         <!-- third child -->
         <div class="bg-light">
-            <h2 class="text-center">GrocerEase</h2>
+            <h2 class="text-center">Grocer<b class="text-success">Ease</b></h2>
             <h3 class="text-center">Ease Your Shopping Experiece Where Quality and Convenience Meet</h3>
         </div>
         <!-- fourth child -->
@@ -158,7 +163,7 @@ session_start();
                 <ul class="navbar-nav me-auto text-center">
                     <li class="nav-item bg-success">
                         <a href="#" class="nav-link  text-light">
-                            <h4>Retailers and Wholesalers</h4>
+                            <h4>Brands</h4>
                         </a>
                     </li>
                     <?php
@@ -188,11 +193,76 @@ session_start();
         <!-- creating the footer section -->
         <!-- use of padding of 3 in the  footer section and the text-center class to align the text to the center   and including the file from footer.php-->
         <!-- include footer -->
+        <footer>
+            <!-- Contact and Feedback section -->
+            <div id="contact" style="display: flex; flex-wrap: wrap; justify-content: space-between">
+                <div style="flex: 1; max-width: 400px; padding: 20px">
+                    <h2 style="margin-top: 0" class="text-success font-weight-bold">Contact Us</h2>
+                    <h6>
+                        If you have any questions or need assistance, please feel free to
+                        reach out to us:
+
+                    </h6>
+                </div>
+
+                <div class="contact-info-item" style="flex: 1; max-width: 400px; padding: 20px">
+                    <h3 class="text-success font-weight-bold">Email</h3>
+                    <h6>shopwithgrocerease@gmail.com</h6>
+                    <h6>shopatgrocerease@gmail.com</h6>
+
+
+                </div>
+
+                <div class="contact-info-item" style="flex: 1; max-width: 400px; padding: 20px">
+                    <h3 class="text-success font-weight-bold">Phone</h3>
+                    <h6>+977 9824059780</h6>
+                    <h6>+977 9861558967</h6>
+
+                </div>
+
+                <div class="contact-info-item" style="flex: 1; max-width: 400px; padding: 20px">
+                    <h3 class="text-success font-weight-bold">Address</h3>
+
+                    <h6>Satdobato ,Lalitpur</h6>
+                    <h6>TalchiKhel<h6>
+                </div>
+
+                <div style="flex: 1; max-width: 400px; padding: 20px">
+                    <h3 class="text-success font-weight-bold">Connect with Us</h3>
+                    <h6>Our Social Media Handles</h6>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank"><img src="Icons/faceboolBeat.svg" alt="Facebook"
+                                style="width: 30px; height: 30px ; margin-right: 10px;" /></a>
+                        <a href="https://instagram.com" target="_blank"><img src="Icons/instagram.svg" alt="Instagram"
+                                style="width: 30px; height: 30px; margin-right: 10px;" /></a>
+                        <a href="https://twitter.com" target="_blank"><img src="Icons/twitter.svg" alt="Twitter"
+                                style="width: 30px; height: 30px; margin-right: 10px;" /></a>
+                        <a href="https://threads.com" target="_blank"><img src="Icons/threads.svg" alt="Threads"
+                                style="width: 30px; height: 30px; margin-right: 10px;" /></a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Map -->
+            <div id="map" style="margin-top: 30px; padding: 20px">
+                <h2 class="text-success font-weight-bold">Our Location</h2>
+                <h3>Find us on the map:</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.005793049451!2d85.31852427536718!3d27.655292476212463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb177c56a520d9%3A0xf3d0d1e37134dfb7!2sCosmos%20College%20of%20Management%20and%20Technology!5e0!3m2!1sen!2snp!4v1695036922167!5m2!1sen!2snp"
+                    width="1400" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+
+        </footer>
         <?php
         include("./includes/footer.php");
         ?>
 
     </div>
+    <!-- index.php -->
+
+
 
 
     <!-- boootstrap js link -->

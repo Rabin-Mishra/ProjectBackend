@@ -1,3 +1,8 @@
+<?php
+include('../includes/connect.php');
+include('../functions/common_function.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +22,13 @@
 
     <!-- css files link -->
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .product_img {
+            width: 100px;
+            object-fit: contain;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -49,28 +61,40 @@
      -->
         <!-- whenever we are wrapping to row class there would be columns and whenever we are giving that columns it should always sum up to 12-->
         <div class="row">
-            <div class="col-md-12 bg-light p-1 d-flex align-items-center">
+            <div class="col-md-12 bg-light p-1 d-flex align-items-center font-weight-bold">
                 <div>
                     <a href="#"><img src="../image/pic-1.png" alt="Admin Image" class="admin_Image"></a>
-                    <p class="text-dark text-center font-weight-bold">Admin Name</p>
+                    <p class="text-success text-center font-weight-bold">Admin</p>
                 </div class="p-5">
-                <!-- generatinga an Emmet(Efficient XML-like markup) for a combined class fulfilling all the necessary details as an abbreviated form of shrtcuts
+                <!-- generatinga an Emmet(Efficient XML-like markup) for a combined class fulfilling all the necessary details as an abbreviated form of shortcuts
          -->
-                <div class="button text-center ">
+                <div class="button text-center px-4 bg-success ">
                     <button class="my-3"><a href="insert_product.php"
-                            class="nav-link text-light bg-success my-1 ">Insert
+                            class="nav-link text-light bg-success my-1 font-weight-bold ">Insert
                             Products</a></button>
-                    <button><a href="" class="nav-link text-light bg-success my-1 ">View Products</a></button>
-                    <button><a href="index.php?insert_category" class="nav-link text-light bg-success my-1">Insert
+                    <button><a href="index.php?view_products"
+                            class="nav-link text-light bg-success my-1 font-weight-bold">View
+                            Products</a></button>
+                    <button><a href="index.php?insert_category"
+                            class="nav-link text-light bg-success my-1 font-weight-bold">Insert
                             Categories</a></button>
-                    <button><a href="" class="nav-link text-light bg-success my-1">View Categories</a></button>
-                    <button><a href="index.php?insert_brand" class="nav-link text-light bg-success my-1">Insert
+                    <button><a href="index.php?view_categories"
+                            class="nav-link text-light bg-success my-1 font-weight-bold">View
+                            Categories</a></button>
+                    <button><a href="index.php?insert_brand"
+                            class="nav-link text-light bg-success my-1 font-weight-bold">Insert
                             Brands</a></button>
-                    <button><a href="" class="nav-link text-light bg-success my-1">View Brands</a></button>
-                    <button><a href="" class="nav-link text-light bg-success my-1">All Orders</a></button>
-                    <button><a href="" class="nav-link text-light bg-success my-1">All Payments</a></button>
-                    <button><a href="" class="nav-link text-light bg-success my-1">List Users</a></button>
-                    <button><a href="" class="nav-link text-light bg-success my-1">Logout</a></button>
+                    <button><a href="index.php?view_brands"
+                            class="nav-link text-light bg-success my-1 font-weight-bold">View
+                            Brands</a></button>
+                    <!-- <button><a href="" class="nav-link text-light bg-success my-1 font-weight-bold">All
+                            Orders</a></button> -->
+                    <!-- <button><a href="" class="nav-link text-light bg-success my-1 font-weight-bold">All
+                            Payments</a></button> -->
+                    <!-- <button><a href="" class="nav-link text-light bg-success my-1 font-weight-bold">List
+                            Users</a></button> -->
+                    <button><a href="admin_logout.php"
+                            class="nav-link text-light bg-success my-1 font-weight-bold">Logout</a></button>
                 </div>
             </div>
         </div>
@@ -86,28 +110,40 @@
         if (isset($_GET['insert_brand'])) {
             include('insert_brands.php');
         }
-
-
+        if (isset($_GET['view_products'])) {
+            include('view_products.php');
+        }
+        // if (isset($_GET['edit_products'])) {
+        //     include('edit_products.php');
+        // }
+        if (isset($_GET['delete_product'])) {
+            include('delete_product.php');
+        }
+        if (isset($_GET['view_categories'])) {
+            include('view_categories.php');
+        }
+        if (isset($_GET['view_brands'])) {
+            include('view_brands.php');
+        }
+        if (isset($_GET['delete_category'])) {
+            include('delete_category.php');
+        }
+        if (isset($_GET['delete_brands'])) {
+            include('delete_brands.php');
+        }
 
         ?>
 
     </div>
 
-
-
-    <!-- last child -->
+    <!-- last child
     <div class="bg-success p-3 text-center footer text-light font-weight-bold">
         <p>All rights reserved &copy;- Designed By Team GrocerEase </p>
+    </div> -->
+    <?php
+    include("../includes/footer.php");
+    ?>
     </div>
-
-
-
-
-
-
-
-
-
 
     <!-- bootstrap js link -->
     <!-- boootstrap js link -->
@@ -116,6 +152,9 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 </body>
 

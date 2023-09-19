@@ -59,7 +59,7 @@ session_start();
                         <a class="nav-link text-light" href="./users_area/user_registration.php"><b>Register</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="cart.php"><b>Contact</b></a>
+                        <a class="nav-link text-light" href="#"><b>Contact</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="cart.php"><i
@@ -94,33 +94,29 @@ session_start();
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <ul class="navbar-nav me-auto">
 
+
                 <?php
-
                 if (!isset($_SESSION['username'])) {
-                    echo "     <li class='nav-item'>
-<a class='nav-link' href='#' class='text-success'> <b>Welcome Guest</b> </a>
-</li>
-</li>";
-
+                    echo "  <li class='nav-item'>
+                <a class='nav-link text-success' href='#'> <b>Welcome Guest</b> </a>
+                </li>";
                 } else {
-                    echo " <li class='nav-item'>
-<a class='nav-link' href='#'> class='userLogin'><sup
-        class='text-success'>Welcome" . $_SESSION['username'] . "</sup></a>
-</li>";
-
+                    echo "<li class='nav-item'>
+                            <a class='nav-link text-success' href='#'> <b>Welcome " . $_SESSION['username'] . "
+                            </b> </a>
+                            </li>";
                 }
+
                 if (!isset($_SESSION['username'])) {
-                    echo " <li class='nav-item'>
-                    <a class='nav-link' href='./users_area/user_login.php'> <img src='../Icons/user.png' alt='User Login' class='userLogin'><sup
-                            class='text-success'>Login</sup></a>
-                </li>";
+                    echo "   <li class='nav-item'>
+<a class='nav-link text-success font-weight-bold' href='./users_area/user_login.php'><img src='./Icons/user.png' alt='User Login'
+class='userLogin'><sup>Login</sup></a>
+</li>";
 
                 } else {
-                    echo " <li class='nav-item'>
-                    <a class='nav-link' href='./users_area/logout.php'> <img src='../Icons/user.png' alt='User Login' class='userLogin'><sup
-                            class='text-success'>LogOut</sup></a>
-                </li>";
-
+                    echo "<li class='nav-item'>
+<a class='nav-link text-danger font-weight-bold' href='./users_area/logout.php'> Logout</a>
+</li>";
                 }
                 ?>
             </ul>

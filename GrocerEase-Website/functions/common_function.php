@@ -1,64 +1,65 @@
 <?php
 /*including the connect file
 since the includes and functions folders are in the same level so a single . is being used*/
-// include('../includes/connect.php');
+//include('../includes/connect.php');
 
 //including the functions
 
 
 //getting products
-function getProducts()
-{
+if (!function_exists('getProducts')) {
+    function getProducts()
+    {
 
-    global $con;
+        global $con;
 
-    //conditon to check is set or not
-    if (!isset($_GET['category'])) {
-        if (!isset($_GET['brand'])) {
+        //conditon to check is set or not
+        if (!isset($_GET['category'])) {
+            if (!isset($_GET['brand'])) {
 
-            $select_query = "select * from `products` order by product_title ASC LIMIT 0,12 ";
-            $result_query = mysqli_query($con, $select_query);
+                $select_query = "select * from `products` order by rand() limit 0,12";
+                $result_query = mysqli_query($con, $select_query);
+                // echo ($result_query);
 
 
-            while ($row = mysqli_fetch_assoc($result_query)) {
-                $product_id = $row['product_id'];
-                $product_title = $row['product_title'];
-                $product_description = $row['product_description'];
-                // $product_keywords = $row['product_keywords'];
-                $product_image1 = $row['product_image1'];
-                $product_price = $row['product_price'];
-                $category_id = $row['category_id'];
-                $brand_id = $row['brand_id'];
+                while ($row = mysqli_fetch_assoc($result_query)) {
 
-                echo " <div class='col-md-3 mb-2'>
-         <div class='card ' >
-             <img src='./admin_area/product_images/$product_image1' class='card-img-top ' alt='Apple'>
-             <div class='card-body'>
-                 <h5 class='card-title'>$product_title</h5>
-                 <p class='card-text'>$product_description</p>
-                 <p class='card-text'>Price:Rs.$product_price/-</p>
-                 <a href='index.php?add_to_cart=$product_id' class='btn btn-success'>Add to cart</a>
-                 <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
+                    $product_id = $row['product_id'];
+                    $product_title = $row['product_title'];
+                    $product_description = $row['product_description'];
+                    // $product_keywords = $row['product_keywords'];
+                    $product_image1 = $row['product_image1'];
+                    $product_price = $row['product_price'];
+                    $category_id = $row['category_id'];
+                    $brand_id = $row['brand_id'];
+
+                    echo " <div class='col-md-3 mb-2'>
+             <div class='card ' >
+                 <img src='./admin_area/product_images/$product_image1' class='card-img-top ' alt='Apple'>
+                 <div class='card-body'>
+                     <h5 class='card-title'>$product_title</h5>
+                     <p class='card-text'>$product_description</p>
+                     <p class='card-text'>Price:Rs.$product_price/-</p>
+                     <a href='index.php?add_to_cart=$product_id' class='btn btn-success'>Add to cart</a>
+                     <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
+                 </div>
              </div>
-         </div>
-     </div>";
+         </div>";
+                }
             }
         }
     }
 }
+
 //getting all the products
 function get_all_products()
 {
-
     global $con;
-
     //conditon to check is set or not
     if (!isset($_GET['category'])) {
         if (!isset($_GET['brand'])) {
-
             $select_query = "select * from `products` order by rand() ";
             $result_query = mysqli_query($con, $select_query);
-
             while ($row = mysqli_fetch_assoc($result_query)) {
                 $product_id = $row['product_id'];
                 $product_title = $row['product_title'];
@@ -68,26 +69,22 @@ function get_all_products()
                 $product_price = $row['product_price'];
                 $category_id = $row['category_id'];
                 $brand_id = $row['brand_id'];
-
                 echo " <div class='col-md-3 mb-2'>
-         <div class='card ' >
-             <img src='./admin_area/product_images/$product_image1' class='card-img-top ' alt='Apple'>
-             <div class='card-body'>
-                 <h5 class='card-title'>$product_title</h5>
-                 <p class='card-text'>$product_description</p>
-                 <p class='card-text'>Price:Rs.$product_price/-</p>
-                 <a href='index.php?add_to_cart=$product_id' class='btn btn-success'>Add to cart</a>
-                 <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
-             </div>
-         </div>
-     </div>";
+          <div class='card ' >
+              <img src='./admin_area/product_images/$product_image1' class='card-img-top ' alt='Apple'>
+              <div class='card-body'>
+                  <h5 class='card-title'>$product_title</h5>
+                  <p class='card-text'>$product_description</p>
+                  <p class='card-text'>Price:Rs.$product_price/-</p>
+                  <a href='index.php?add_to_cart=$product_id' class='btn btn-success'>Add to cart</a>
+                  <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
+              </div>
+          </div>
+      </div>";
             }
         }
     }
-
 }
-
-
 //getting uniuqe categories
 function get_unique_categories()
 {
@@ -335,7 +332,7 @@ function getIPAddress()
 //cart functions
 function cart()
 {
-    /*if same product id but different ip address it will not fetch the data as it will check for both of the conditions if anyone fails then it will no work for both the conditions*/
+    /*if same product id but different ip address it will not fetch the data as it will check for both of the conditions if anyone fails then it will not work for both the conditions*/
     if (isset($_GET['add_to_cart'])) {
         /*connection variable is stored in a separate file so it needs to be global so as to be included*/
         global $con;
@@ -380,9 +377,9 @@ function cart_item()
         $get_ip_add = getIPAddress(); //::1
         //accessing the value
 
-        $select_query = "select * from `cart_details` where ip_address='$get_ip_add' ";
-        $result_query = mysqli_query($con, $select_query);
-        $count_cart_items = mysqli_num_rows($result_query);
+        $select_query_cart = "select * from `cart_details` where ip_address='$get_ip_add' ";
+        $result_query_cart = mysqli_query($con, $select_query_cart);
+        $count_cart_items = mysqli_num_rows($result_query_cart);
     }
     echo $count_cart_items;
 }
@@ -410,5 +407,8 @@ function total_cart_price()
     }
     echo $total_price;
 }
+
+
+
 
 ?>

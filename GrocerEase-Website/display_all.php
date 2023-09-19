@@ -95,32 +95,26 @@ session_start();
             <ul class="navbar-nav me-auto">
 
                 <?php
-
                 if (!isset($_SESSION['username'])) {
-                    echo "     <li class='nav-item'>
-<a class='nav-link' href='#' class='text-success'> <b>Welcome Guest</b> </a>
-</li>
+                    echo "  <li class='nav-item'>
+<a class='nav-link text-success' href='#'> <b>Welcome Guest</b> </a>
 </li>";
-
                 } else {
-                    echo " <li class='nav-item'>
-<a class='nav-link' href='#'> class='userLogin'><sup
-        class='text-success'>Welcome" . $_SESSION['username'] . "</sup></a>
-</li>";
-
+                    echo "<li class='nav-item'>
+            <a class='nav-link text-success' href='#'> <b>Welcome " . $_SESSION['username'] . "
+            </b> </a>
+            </li>";
                 }
                 if (!isset($_SESSION['username'])) {
-                    echo " <li class='nav-item'>
-                    <a class='nav-link' href='./users_area/user_login.php'><sup
-                            class='text-success'>Login</sup></a>
-                </li>";
+                    echo "   <li class='nav-item'>
+<a class='nav-link text-success font-weight-bold' href='./users_area/user_login.php'><img src='./Icons/user.png' alt='User Login'
+class='userLogin'><sup>Login</sup></a>
+</li>";
 
                 } else {
-                    echo " <li class='nav-item'>
-                    <a class='nav-link' href='./users_area/logout.php'><sup
-                            class='text-success'>LogOut</sup></a>
-                </li>";
-
+                    echo "<li class='nav-item'>
+<a class='nav-link  text-danger font-weight-bold' href='./users_area/logout.php'> Logout</a>
+</li>";
                 }
                 ?>
             </ul>

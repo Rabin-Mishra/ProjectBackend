@@ -46,7 +46,7 @@ if (isset($_POST['insert_brand'])) {
         <!-- bootstrap class will only be applied after giving  hte form-control class
      -->
         <input type="submit" class=" bg-success text-light font-weight-bold border-0 p-2 my-3" name="insert_brand"
-            value="Insert Brands">
+            value="Insert Sellers">
         <!-- <button class="bg-success text-light font-weight-bold p-2 my-3 border-0">Insert Brands</button> -->
     </div>
 </form>

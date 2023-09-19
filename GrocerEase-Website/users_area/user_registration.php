@@ -114,7 +114,7 @@ if (isset($_POST['user_register'])) {
     $result = mysqli_query($con, $select_query);
     $rows_count = mysqli_num_rows($result);
     if ($rows_count > 0) {
-        echo "<script>alert('Username Or email already exists form not registered')</script>";
+        echo "<script>alert('Username Or email already exists ')</script>";
     } else if ($user_password != $conf_user_password) {
         echo "<script>alert('Passwords dont match form not registered ')</script>";
     } else {

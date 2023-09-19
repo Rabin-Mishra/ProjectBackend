@@ -2,7 +2,6 @@
 include('../includes/connect.php');
 include('../functions/common_function.php');
 @session_start();
-
 ?>
 
 
@@ -78,13 +77,15 @@ if (isset($_POST['user_login'])) {
     $result_cart = mysqli_query($con, $select_cart_query);
     $row_count_cart = mysqli_num_rows($result_cart);
     if ($row_count > 0) {
+        //accesssing the session variables 
         $_SESSION['username'] = $user_username;
         if (password_verify($user_password, $row_data['user_password'])) {
             // echo "<script>alert('Logged in Successfully')</script>";
             if ($row_count == 1 and $row_count_cart == 0) {
                 echo "<script>alert('Logged in successfully')</script>";
-                echo "<script>window.open('profile.php','_self')</script>";
+                echo "<script>window.open('../index.php','_self')</script>";
             } else {
+                $_SESSION['username'] = $user_username;
                 echo "<script>alert('User logged in successfully')</script>";
                 echo "<script>window.open('payment.php','_self')</script>";
             }

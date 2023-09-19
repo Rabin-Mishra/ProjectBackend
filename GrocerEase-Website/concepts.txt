@@ -282,7 +282,7 @@ name='continue_shopping'>
                         echo "<h2 class='text-center text-danger'>Cart is empty</h2>";
                     }
 
-                    if (isset($_POST['continue_shopping'])) {
+                    if (isset($_POST['continue_shopping'])) 
                         echo "<script>window.open('index.php','_self')</script>";
                     }
                     ?>
