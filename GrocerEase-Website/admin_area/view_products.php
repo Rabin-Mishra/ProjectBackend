@@ -1,3 +1,7 @@
+<?php
+include('../includes/connect.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +22,7 @@
                 <th>Product Price</th>
                 <!-- <th>Total Sold</th> -->
                 <th>Status</th>
-                <!-- <th>Edit</th> -->
+                <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -60,7 +64,10 @@
                     <td>
                         <?php echo $status; ?>
                     </td>
-                    <!-- <td><a href='index.php?edit_products' class='text-light'><i class='fa-solid fa-pen-to-square' </i></a></td> -->
+                    <td><a href='index.php?edit_products=<?php echo $product_id ?>' class='text-light'><i
+                                class='fa-solid fa-pen-to-square'></i></a></td>
+
+
                     <td><a href='index.php?delete_product=<?php echo $product_id ?>' class='text-light'><i
                                 class='fa-solid fa-trash'></i></a></td>
                 </tr>

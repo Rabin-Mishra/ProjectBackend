@@ -83,6 +83,8 @@ if (isset($_POST['admin_registration'])) {
     $admin_hashP = password_hash($admin_password, PASSWORD_DEFAULT);
     $conf_admin_password = $_POST['conf_password'];
 
+    $admin_ip = $_SERVER['REMOTE_ADDR'];
+
     //select query
     $admin_select_query = "select * from `admin_table` where admin_name='$admin_username' OR admin_email='$admin_email'";
     $result = mysqli_query($con, $admin_select_query);
@@ -100,6 +102,7 @@ if (isset($_POST['admin_registration'])) {
         $sql_execute = mysqli_query($con, $insert_query);
     }
     if ($sql_execute) {
+        $_SESSION['admin_name'] = $admin_username;
         echo "<script>
         alert('Data inserted successfully')
         </script>";

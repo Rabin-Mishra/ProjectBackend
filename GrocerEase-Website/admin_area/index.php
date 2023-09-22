@@ -1,6 +1,8 @@
 <?php
 include('../includes/connect.php');
 include('../functions/common_function.php');
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +44,28 @@ include('../functions/common_function.php');
                 <img src="../image/UnsplashImages/cat-1.png" alt="" class="logo">
                 <nav class="navbar navbar-expand-lg ">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-light font-weight-bold">Welcome Guest</a>
-                        </li>
+                        <?php
+                        if (!isset($_SESSION['admin_name'])) {
+                            echo "  <li class='nav-item'>
+                    <a class='nav-link text-light' href='#'> <b>Welcome Guest</b> </a>
+                    </li>";
+                        } else {
+                            echo "<li class='nav-item'>
+                            <a class='nav-link text-light' href='#'> <b>Welcome " . $_SESSION['admin_name'] . "
+                            </b> </a>
+                            </li>";
+                        }
+
+                        if (!isset($_SESSION['admin_name'])) {
+                            echo '<li class="nav-item">
+                                    <a class="nav-link text-light font-weight-bold" href="admin_login.php">Login</a>
+                                  </li>';
+                        } else {
+                            echo '<li class="nav-item">
+                                    <a class="nav-link text-danger font-weight-bold" href="admin_logout.php">Logout</a>
+                                  </li>';
+                        }
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -64,7 +85,21 @@ include('../functions/common_function.php');
             <div class="col-md-12 bg-light p-1 d-flex align-items-center font-weight-bold">
                 <div>
                     <a href="#"><img src="../image/pic-1.png" alt="Admin Image" class="admin_Image"></a>
-                    <p class="text-success text-center font-weight-bold">Admin</p>
+                    <p class="text-success text-center font-weight-bold">
+                        <?php
+                        if (!isset($_SESSION['admin_name'])) {
+                            echo "  <li class='nav-item'>
+                    <a class='nav-link text-light' href='#'> <b>Welcome Guest</b> </a>
+                    </li>";
+                        } else {
+                            echo "<li class='nav-item'>
+                            <a class='nav-link text-success pb-10' href='#'> <b>Welcome " . $_SESSION['admin_name'] . "
+                            </b> </a>
+                            </li>";
+                        }
+                        ?>
+
+                    </p>
                 </div class="p-5">
                 <!-- generatinga an Emmet(Efficient XML-like markup) for a combined class fulfilling all the necessary details as an abbreviated form of shortcuts
          -->
@@ -113,9 +148,9 @@ include('../functions/common_function.php');
         if (isset($_GET['view_products'])) {
             include('view_products.php');
         }
-        // if (isset($_GET['edit_products'])) {
-        //     include('edit_products.php');
-        // }
+        if (isset($_GET['edit_products'])) {
+            include('edit_products.php');
+        }
         if (isset($_GET['delete_product'])) {
             include('delete_product.php');
         }

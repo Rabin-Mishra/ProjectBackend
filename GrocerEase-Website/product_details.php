@@ -149,7 +149,7 @@ class='userLogin'><sup>Login</sup></a>
                 <ul class="navbar-nav me-auto text-center">
                     <li class="nav-item bg-success">
                         <a href="#" class="nav-link  text-light">
-                            <h4>Retailers and Wholesalers</h4>
+                            <h4>Brands</h4>
                         </a>
                     </li>
                     <?php

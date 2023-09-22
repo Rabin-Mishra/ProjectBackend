@@ -91,7 +91,7 @@ include('../functions/common_function.php');
 
 <!-- php code for data insertion -->
 <?php
-//chek id the button is clicked to insert the value inside the database
+//chek if the button is clicked to insert the value inside the database
 if (isset($_POST['user_register'])) {
     $user_username = $_POST['user_username'];
     $user_email = $_POST['user_email'];

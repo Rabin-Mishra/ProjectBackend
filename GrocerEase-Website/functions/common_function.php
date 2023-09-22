@@ -135,7 +135,7 @@ function get_unique_brands()
         $result_query = mysqli_query($con, $select_query);
         $num_of_rows = mysqli_num_rows($result_query);
         if ($num_of_rows == 0) {
-            echo "<h2 class='text-center text-danger'>This Particular (Retailers OR Wholesalers) is not  available for the service</h2>";
+            echo "<h2 class='text-center text-danger'>No stock for this brand</h2>";
         }
 
 
